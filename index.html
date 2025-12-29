@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Peta Web Saya</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <style>
+   body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+}
+
+#header {
+  background: #1e3a8a;
+  color: white;
+  padding: 12px;
+  text-align: center;
+}
+
+#header h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+#header p {
+  margin: 4px 0 0;
+  font-size: 14px;
+}
+
+#map {
+  height: calc(100vh - 80px);
+  width: 100%;
+}
+
+  </style>
+</head>
+
+<<body>
+
+    <div id="header">
+      <h2>Peta Sebaran Wilayah Studi</h2>
+      <p>Hasil Visualisasi Data Geospasial</p>
+    </div>
+  
+    <div id="map"></div>
+  
+  </body>
+  >
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  // Inisialisasi peta
+  var map = L.map('map').setView([-6.9, 107.6], 10); // Bandung
+// Marker contoh
+L.marker([-6.9, 107.6])
+  .addTo(map)
+  .bindPopup("<b>Kota Bandung</b><br> lokasi penelitian.")
+  .openPopup();
+
+  // Basemap OpenStreetMap
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+  }).addTo(map);
+</script>
+
+</body>
+</html>
